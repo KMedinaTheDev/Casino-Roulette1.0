@@ -1,0 +1,83 @@
+<!doctype html>
+
+<html>
+
+
+
+<head>
+
+  <title>Roulette</title>
+
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <section class="spinContain">
+      <input class="spin" type="button" value="spin" style="float:left;" id='spin' />
+      <canvas id="canvas" width="500" height="500"></canvas>
+    </section>
+    <section>
+      <h1 class="playerBank"></h1>
+    </section>
+
+    <form name="bets" action="betResult" method="POST">
+      <fieldset>
+        <legend>User Place Your Bet:</legend>
+        <ul class="betResult">
+          <% for(var i=0; i<betResult.length; i++) {%>
+            <li class="betResult">
+              <span class="gambler"><%= betResult[i].name %></span>
+              <span><%= betResult[i].betAmt %></span>
+              <span><%= betResult[i].betColor %></span>
+              <span><%=betResult[i].numBet %></span>
+              <span><%= betResult[i].wins %></span>
+              <span><%= betResult[i].losses %></span>
+              <span id="playerBank"><%= betResult[i].playerBank %></span>
+
+            </li>
+            <% } %>
+        </ul>
+
+        <h2 id="numBet"></h2>
+        <h2 id="playerNum"></h2>
+        <h2>WINS:</h2>
+        <h3 id="wins" name="wins"></h3>
+        <h2>Losses:</h2>
+        <h3 id="losses" name="losses"></h3>
+
+        <input id="name" type="text" name="name" placeholder="NAME:">
+        <input class="playerNum" type="text" name="numBet" value="" placeholder="Pick A Number">
+        <select id="betInput" name="betAmt">
+        <option  value="100">100</option>
+        <option  value="200">200</option>
+        <option  value="500">500</option>
+        <option  value="All">All IN</option>
+     </select>
+        <select class="" name="betColor">
+       <option value="black">Black</option>
+       <option value="red">Red</option>
+       <option value="green">Green</option>
+
+     </select>
+        <button id="submitBet" type="submit" name="button">Submit</button>
+
+      </fieldset>
+
+    </form>
+
+  </div>
+
+  <a href="/login"><button>LOGIN</button></a>
+
+
+
+  </div>
+  <script type="text/javascript" src="main.js">
+  </script>
+</body>
+
+
+
+</html>

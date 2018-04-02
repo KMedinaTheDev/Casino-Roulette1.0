@@ -1,3 +1,5 @@
+![Casino-Roulette](public/img/roulette-login.png)
+
 ## Installation
 
 1. Clone repo
